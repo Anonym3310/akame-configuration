@@ -14,6 +14,8 @@ config NETHUNTER_SUPPORT
 
 	select MODULES
 
+	select MODULE_FORCE_LOAD
+
 	select MODULE_UNLOAD
 
 	select MODULE_FORCE_UNLOAD
@@ -948,28 +950,67 @@ config AKAME_SUPPORT
 
 	help
 
-        Support initial ramdisk/ramfs compressed using and ttl support.
+        Support kernel headers, initial ramdisk/ramfs compressed using, ttl, tcp configs.
         
+    select IKHEADERS
+ 
     select RD_GZIP
-    
+
     select RD_BZIP2
-    
+
     select RD_LZMA
-    
+
     select RD_XZ
-    
+
     select RD_LZO
-    
+
     select RD_LZ4
-    
+
 	select IP_NF_TARGET_TTL
-	
-	select IP_NF_MATCH_TTL    
-    
+
+	select IP_NF_MATCH_TTL
+
 	select IP6_NF_TARGET_HL
-	
+
 	select IP6_NF_MATCH_HL
-	
+
+	select TCP_CONG_BIC
+
+	select TCP_CONG_CUBIC
+
+	select TCP_CONG_WESTWOOD
+
+	select TCP_CONG_HTCP
+
+	select TCP_CONG_HSTCP
+
+	select TCP_CONG_HYBLA
+
+	select TCP_CONG_VEGAS
+
+	select TCP_CONG_NV
+
+	select TCP_CONG_SCALABLE
+
+	select TCP_CONG_LP
+
+	select TCP_CONG_VENO
+
+	select TCP_CONG_YEAH
+
+	select TCP_CONG_ILLINOIS
+
+	select TCP_CONG_DCTCP
+
+	select TCP_CONG_CDG
+
+	select TCP_CONG_BBR
+
+	select TCP_CONG_SOCIOPATH
+
+	select TCP_CONG_BBR2
+
+
 config AKAME_ZRAM_SUPPORT
 
 	bool "Zram & Zswap support"
@@ -1011,6 +1052,35 @@ config AKAME_ZRAM_SUPPORT
     select ZRAM_WRITEBACK
     
     select ZRAM_MEMORY_TRACKING
+
+
+config AKAME_FS_SUPPORT
+
+	bool "F2FS, NTFS support"
+
+	default y if AKAME_SUPPORT
+
+	depends on AKAME_SUPPORT
+
+	help
+
+		Enable F2FS, NTFS support
+
+	select F2FS_FS
+
+	select F2FS_STAT_FS
+
+	select F2FS_FS_XATTR
+
+	select F2FS_FS_POSIX_ACL
+
+	select F2FS_FS_SECURITY
+
+	select F2FS_FS_ENCRYPTION
+
+	select NTFS_FS
+
+	select NTFS_RW
 
 
 config AKAME_DISABLE
