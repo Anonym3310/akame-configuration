@@ -512,6 +512,8 @@ config NETHUNTER_WIFI_DRIVERS_SUPPORT
 
 	select CARL9170
 
+	select CARL9170_LEDS
+
 	select ATH6KL
 
 	select ATH6KL_USB
