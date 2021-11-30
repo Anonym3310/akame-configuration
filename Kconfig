@@ -1,5 +1,5 @@
 menu "AkameKernel Configuration Support"
 
-source "4.14/Kconfig"
+source "akame-configuration/4.14/Kconfig"
 
 endmenu
