@@ -1,5 +1,0 @@
-git fetch git@github.com:Anonym3310/akame-configuration.git master
-
-git merge -s ours --no-commit --allow-unrelated-histories --squash FETCH_HEAD
-
-git read-tree --prefix=akame-configuration -u FETCH_HEAD
