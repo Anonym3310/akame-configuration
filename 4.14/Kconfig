@@ -954,19 +954,21 @@ config AKAME_SUPPORT
 
         Support kernel headers, initial ramdisk/ramfs compressed using, ttl, tcp configs.
         
-    select IKHEADERS
- 
-    select RD_GZIP
+	select IKHEADERS
 
-    select RD_BZIP2
+	select CONFIG_SCHED_WALT
 
-    select RD_LZMA
+    	select RD_GZIP
 
-    select RD_XZ
+    	select RD_BZIP2
 
-    select RD_LZO
+	select RD_LZMA
 
-    select RD_LZ4
+	select RD_XZ
+
+	select RD_LZO
+
+	select RD_LZ4
 
 	select IP_NF_TARGET_TTL
 
